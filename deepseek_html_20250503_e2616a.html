@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suzi Set - Premium Clothing</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product-image {
+            max-width: 400px;
+            height: auto;
+        }
+        .size-options {
+            margin: 20px 0;
+        }
+        .size-button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .size-button.selected {
+            background-color: #ff69b4;
+            color: white;
+            border-color: #ff69b4;
+        }
+        .add-to-cart {
+            background-color: #ff69b4;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .add-to-cart:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <h1>Suzi Set</h1>
+    <h2>Premium Cotton Dress</h2>
+    
+    <!-- Replace with your actual image URL -->
+    <img src="https://example.com/your-dress-image.jpg" alt="Suzi Set Dress" class="product-image">
+    
+    <p>Price: $49.99</p>
+    
+    <div class="size-options">
+        <h3>Select Size:</h3>
+        <button class="size-button" onclick="selectSize('S')">S</button>
+        <button class="size-button" onclick="selectSize('M')">M</button>
+        <button class="size-button" onclick="selectSize('L')">L</button>
+        <button class="size-button" onclick="selectSize('XL')">XL</button>
+    </div>
+
+    <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+
+    <script>
+        let selectedSize = null;
+
+        function selectSize(size) {
+            // Remove selection from all buttons
+            document.querySelectorAll('.size-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Add selection to clicked button
+            event.target.classList.add('selected');
+            selectedSize = size;
+        }
+
+        function addToCart() {
+            if (!selectedSize) {
+                alert("Please select a size first!");
+                return;
+            }
+            
+            // Here you would normally connect to a shopping cart system
+            alert(`Added ${selectedSize} size to cart!`);
+            
+            // Reset selection
+            document.querySelectorAll('.size-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            selectedSize = null;
+        }
+    </script>
+</body>
+</html>
